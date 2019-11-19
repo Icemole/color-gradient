@@ -1,0 +1,33 @@
+void modifyColors( float *color, float colorIncrement ) {
+    // Simulate the color gradient
+    if( color[ 2 ] > 0 && color[ 0 ] == 1 ) {
+        color[ 2 ] -= colorIncrement;
+    } else if( color[ 0 ] == 1 && color[ 1 ] < 1 ) {
+        color[ 1 ] += colorIncrement;
+    } else if( color[ 0 ] > 0 && color[ 1 ] == 1 ) {
+        color[ 0 ] -= colorIncrement;
+    } else if( color[ 1 ] == 1 && color[ 2 ] < 1 ) {
+        color[ 2 ] += colorIncrement;
+    } else if( color[ 1 ] > 0 && color[ 2 ] == 1 ) {
+        color[ 1 ] -= colorIncrement;
+    } else if( color[ 2 ] == 1 && color[ 0 ] < 1 ) {
+        color[ 0 ] += colorIncrement;
+    }
+    
+    // Test that no color exceeds the range [ 0, 1 ]
+    if( color[ 0 ] < 0 ) {
+        color[ 0 ] = 0;
+    } else if( color[ 0 ] > 1 ) {
+        color[ 0 ] = 1;
+    }
+    if( color[ 1 ] < 0 ) {
+        color[ 1 ] = 0;
+    } else if( color[ 1 ] > 1 ) {
+        color[ 1 ] = 1;
+    }
+    if( color[ 2 ] < 0 ) {
+        color[ 2 ] = 0;
+    } else if( color[ 2 ] > 1 ) {
+        color[ 2 ] = 1;
+    }
+}
